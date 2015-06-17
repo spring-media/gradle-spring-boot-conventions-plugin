@@ -1,6 +1,8 @@
 Gradle Spring Boot Conventions Plugin
 ========================================
 
+![Build Status](https://snap-ci.com/WeltN24/gradle-spring-boot-conventions-plugin/branch/master/build_image)
+
 ## Usage
 
 Build script snippet for use in all Gradle versions:
