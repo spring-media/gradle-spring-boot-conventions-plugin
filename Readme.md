@@ -1,4 +1,4 @@
-WeltN24 Spring Boot Conventions Gradle Plugin
+Gradle Spring Boot Conventions Plugin
 ========================================
 
 ## Usage
