@@ -1,0 +1,19 @@
+apply from: "gradle/scripts/publish.gradle"
+
+version = '1.1.0'
+
+apply plugin: 'groovy'
+
+sourceCompatibility = 1.6
+targetCompatibility = 1.6
+
+repositories {
+    jcenter()
+}
+
+dependencies {
+    compile gradleApi()
+    compile localGroovy()
+
+    compile "org.ajoberstar:gradle-git:1.1.0"
+}
