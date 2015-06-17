@@ -14,7 +14,7 @@ import static org.junit.Assert.assertTrue
 
 class SpringBootConventionsPluginTest {
 
-    private static final String PLUGIN_NAME = 'weltn24-spring-boot-conventions'
+    private static final String PLUGIN_NAME = 'de.weltn24.spring-boot-conventions'
 
     Project project
 
