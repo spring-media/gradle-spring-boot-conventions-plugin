@@ -1,6 +1,32 @@
-apply from: "gradle/scripts/publish.gradle"
+buildscript {
+    repositories {
+        maven {
+            url "https://plugins.gradle.org/m2/"
+        }
+    }
+    dependencies {
+        classpath "com.gradle.publish:plugin-publish-plugin:0.9.0"
+    }
+}
+
+apply plugin: "com.gradle.plugin-publish"
 
 version = '1.1.0'
+group = 'de.weltn24.gradle'
+
+pluginBundle {
+    website = 'https://github.com/WeltN24/gradle-plugin-spring-boot-conventions'
+    vcsUrl = 'https://github.com/WeltN24/gradle-plugin-spring-boot-conventions'
+    description = 'The plugin applies conventions for spring boot projects according to WeltN24.'
+    tags = ['weltn24', 'conventions']
+
+    plugins {
+        weltN24SpringBootConventionsPlugin {
+            id = 'de.weltn24.spring-boot-conventions'
+            displayName = 'WeltN24 Spring Boot Conventnion plugin'
+        }
+    }
+}
 
 apply plugin: 'groovy'
 

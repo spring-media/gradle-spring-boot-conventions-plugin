@@ -72,6 +72,10 @@ Build script snippet for new, incubating, plugin mechanism introduced in Gradle 
 ### Show all tasks
 
     ./gradlew tasks
+    
+### Publishing
+
+Publishing is automatically done by snap-ci after a commit with increased version.
 
 ## Copyright (c) 2015 WeltN24 GmbH
 
