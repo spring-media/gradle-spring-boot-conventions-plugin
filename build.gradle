@@ -23,7 +23,7 @@ pluginBundle {
     plugins {
         weltN24SpringBootConventionsPlugin {
             id = 'de.weltn24.spring-boot-conventions'
-            displayName = 'WeltN24 Spring Boot Conventnion plugin'
+            displayName = 'WeltN24 Spring Boot Conventnions plugin'
         }
     }
 }
