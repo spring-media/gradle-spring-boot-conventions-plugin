@@ -14,7 +14,7 @@ Build script snippet for use in all Gradle versions:
         }
       }
       dependencies {
-        classpath "gradle.plugin.de.weltn24.gradle:spring-boot-conventions:1.1.0"
+        classpath "gradle.plugin.de.weltn24:spring-boot-conventions:1.1.0"
       }
     }
     
