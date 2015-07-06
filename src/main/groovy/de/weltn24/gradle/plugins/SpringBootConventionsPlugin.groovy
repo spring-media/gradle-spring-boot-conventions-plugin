@@ -19,23 +19,8 @@ class SpringBootConventionsPlugin implements Plugin<Project> {
         SpringBootConventionsPluginExtension pluginVariables = project.extensions.create('weltn24SpringBootConventions', SpringBootConventionsPluginExtension)
 
         project.afterEvaluate {
-            final String springIOVersion = project.hasProperty("springIOVersion") ? project.property("springIOVersion") : "1.1.2.RELEASE"
-            final String tomcatVersion = project.hasProperty("tomcatVersion") ? project.property("tomcatVersion") : "8.0.21"
-
             project.dependencies.add(JavaPlugin.COMPILE_CONFIGURATION_NAME, "org.springframework.boot:spring-boot-starter-actuator")
-
             project.dependencies.add(JavaPlugin.TEST_COMPILE_CONFIGURATION_NAME, "org.springframework.boot:spring-boot-starter-test")
-
-            project.dependencies.add("versionManagement", "io.spring.platform:platform-versions:${springIOVersion}@properties")
-
-            project.configurations.all {
-                // enforce a specific version of the embedded tomcat (should match the one of the SDP build pack)
-                resolutionStrategy.eachDependency { DependencyResolveDetails details ->
-                    if (details.requested.group == 'org.apache.tomcat.embed') {
-                        details.useVersion(tomcatVersion)
-                    }
-                }
-            }
         }
 
         if(project.file("src/main/resources/config/application.yml").exists()) {
