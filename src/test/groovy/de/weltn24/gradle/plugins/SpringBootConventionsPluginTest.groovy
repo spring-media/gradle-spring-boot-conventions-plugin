@@ -41,12 +41,7 @@ class SpringBootConventionsPluginTest {
         testproject.file("src/main/resources/config").mkdirs()
         testproject.file("src/main/resources/config/application.yml").createNewFile()
         testproject.apply plugin: PLUGIN_NAME
-        assertTrue(testproject.tasks.findByName('generateBuildProperties')  instanceof Task)
-    }
-
-    @Test
-    public void springBootPluginNOTAddGenerateBuildPropertiesTaskToProject() {
-        assertTrue(project.tasks.findByName('generateBuildProperties') == null)
+        assertTrue(testproject.tasks.findByName('generateBuildProperties') instanceof Task)
     }
 
 }

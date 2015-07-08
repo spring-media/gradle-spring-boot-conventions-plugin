@@ -14,7 +14,7 @@ Build script snippet for use in all Gradle versions:
         }
       }
       dependencies {
-        classpath "gradle.plugin.de.weltn24:spring-boot-conventions:1.2.0"
+        classpath "gradle.plugin.de.weltn24:spring-boot-conventions:1.2.1"
       }
     }
     
@@ -23,7 +23,7 @@ Build script snippet for use in all Gradle versions:
 Build script snippet for new, incubating, plugin mechanism introduced in Gradle 2.1:
 
     plugins {
-      id "de.weltn24.spring-boot-conventions" version "1.2.0"
+      id "de.weltn24.spring-boot-conventions" version "1.2.1"
     }
 
 ## This Plugin adds the following features to your Project:
