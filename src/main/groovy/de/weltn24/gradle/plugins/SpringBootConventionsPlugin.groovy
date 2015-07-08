@@ -23,23 +23,22 @@ class SpringBootConventionsPlugin implements Plugin<Project> {
             project.dependencies.add(JavaPlugin.TEST_COMPILE_CONFIGURATION_NAME, "org.springframework.boot:spring-boot-starter-test")
         }
 
-        if(project.file("src/main/resources/config/application.yml").exists()) {
-            project.task('generateBuildProperties',
-                type: Copy,
-                group: 'build',
-                description: 'Generates build properties file.') {
+        project.task('generateBuildProperties',
+            type: Copy,
+            group: 'build',
+            description: 'Generates build properties file.') {
 
 
-                from('src/main/resources/config') {
-                    include 'application.yml'
-                    expand(project.properties)
+            from('src/main/resources/config') {
+                include 'application.yml'
+                expand(project.properties)
 
-                }
-                duplicatesStrategy = 'include'
-                into 'build/resources/main/config'
             }
-            project.tasks.findByName('processResources').finalizedBy('generateBuildProperties')
+            duplicatesStrategy = 'include'
+            into 'build/resources/main/config'
         }
+        project.tasks.findByName('processResources').finalizedBy('generateBuildProperties')
+        project.tasks.findByName('generateBuildProperties').onlyIf { project.file("src/main/resources/config/application.yml").exists() }
 
         project.task('generateGitProperties',
                 group: 'build',
