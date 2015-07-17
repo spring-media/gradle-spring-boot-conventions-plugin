@@ -9,9 +9,10 @@ buildscript {
     }
 }
 
-apply plugin: "com.gradle.plugin-publish"
+apply plugin: 'com.gradle.plugin-publish'
+apply plugin: 'maven-publish'
 
-version = '1.2.1'
+version = '1.3.0'
 group = 'de.weltn24'
 
 pluginBundle {
@@ -23,15 +24,15 @@ pluginBundle {
     plugins {
         weltN24SpringBootConventionsPlugin {
             id = 'de.weltn24.spring-boot-conventions'
-            displayName = 'WeltN24 Spring Boot Conventnions plugin'
+            displayName = 'WeltN24 Spring Boot Conventions plugin'
         }
     }
 }
 
 apply plugin: 'groovy'
 
-sourceCompatibility = 1.6
-targetCompatibility = 1.6
+sourceCompatibility = 1.8
+targetCompatibility = 1.8
 
 repositories {
     jcenter()
@@ -42,4 +43,12 @@ dependencies {
     compile localGroovy()
 
     compile "org.ajoberstar:gradle-git:1.1.0"
+}
+
+publishing {
+    publications {
+        mavenJava(MavenPublication) {
+            from components.java
+        }
+    }
 }

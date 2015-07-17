@@ -14,7 +14,7 @@ Build script snippet for use in all Gradle versions:
         }
       }
       dependencies {
-        classpath "gradle.plugin.de.weltn24:spring-boot-conventions:1.2.1"
+        classpath "gradle.plugin.de.weltn24:spring-boot-conventions:1.3.0"
       }
     }
     
@@ -23,7 +23,7 @@ Build script snippet for use in all Gradle versions:
 Build script snippet for new, incubating, plugin mechanism introduced in Gradle 2.1:
 
     plugins {
-      id "de.weltn24.spring-boot-conventions" version "1.2.1"
+      id "de.weltn24.spring-boot-conventions" version "1.3.0"
     }
 
 ## This Plugin adds the following features to your Project:
@@ -34,6 +34,8 @@ Build script snippet for new, incubating, plugin mechanism introduced in Gradle 
 ### Dependencies
 - org.springframework.boot:spring-boot-starter-actuator
 - org.springframework.boot:spring-boot-starter-test
+- org.springframework.boot:spring-boot-devtools
+- org.springframework.cloud:spring-cloud-starter-hystrix
 
 ### Configuration
 All configurations are optional
