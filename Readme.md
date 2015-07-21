@@ -26,6 +26,28 @@ Build script snippet for new, incubating, plugin mechanism introduced in Gradle 
       id "de.weltn24.spring-boot-conventions" version "1.3.0"
     }
 
+The plugin applies only conventions and best practices. The necessary Gradle configuration for developing Spring Boot applications must be done in the project itself.
+
+Example:
+
+    buildscript {
+        repositories { 
+            jcenter() 
+            maven { url "https://plugins.gradle.org/m2/" }
+            maven { url "http://repo.spring.io/milestone" }
+        }
+        
+        dependencies {
+            classpath(
+                'org.springframework.boot:spring-boot-gradle-plugin:1.3.0.M2',
+                'gradle.plugin.de.weltn24:spring-boot-conventions:1.3.0',
+                'org.ajoberstar:gradle-git:1.2.0' 
+            )
+        }
+    }
+    apply plugin: 'spring-boot'
+    apply plugin: 'de.weltn24.spring-boot-conventions'
+
 ## Preconditions
 - currently this plugin supports only [Spring Boot](http://projects.spring.io/spring-boot/) projects 1.3.0M2+
 - plugin tested with [Gradle](http://gradle.org/) 2.4+ in single and multi project setups
