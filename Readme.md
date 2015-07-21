@@ -27,7 +27,7 @@ Build script snippet for new, incubating, plugin mechanism introduced in Gradle 
     }
 
 ## Preconditions
-- currently this plugin supports only Spring Boot projects 1.3.0M2+
+- currently this plugin supports only [Spring Boot](http://projects.spring.io/spring-boot/) projects 1.3.0M2+
 - plugin tested with [Gradle](http://gradle.org/) 2.4+ in single and multi project setups
  
 ## Conventions
