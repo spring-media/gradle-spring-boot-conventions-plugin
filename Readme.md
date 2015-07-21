@@ -68,7 +68,7 @@ The following dependencies will be added to the classpath:
 | ---- | ---- | ------------- |
 |compile| org.springframework.boot:spring-boot-starter-actuator| production ready [HTTP endpoints](http://docs.spring.io/spring-boot/docs/current/reference/html/production-ready-endpoints.html) |
 |compile| org.springframework.boot:spring-boot-devtools| [tools](https://spring.io/blog/2015/06/17/devtools-in-spring-boot-1-3) supporting rapid development of boot apps  (restarting etc.) |
-|compile| org.springframework.cloud:spring-cloud-starter-hystrix | [Spring Cloud](http://cloud.spring.io/spring-cloud-netflix/spring-cloud-netflix.html) abstraction of the [Hystrix](https://github.com/Netflix/Hystrix) project [tools](https://spring.io/blog/2015/06/17/devtools-in-spring-boot-1-3) supporting rapid development of boot apps  |
+|compile| org.springframework.cloud:spring-cloud-starter-hystrix | [Spring Cloud](http://cloud.spring.io/spring-cloud-netflix/spring-cloud-netflix.html) abstraction of the [Hystrix](https://github.com/Netflix/Hystrix) project |
 |testCompile| org.springframework.boot:spring-boot-starter-test | best practices of libraries to write automated tests for spring apps |
 
 ### Custom tasks
