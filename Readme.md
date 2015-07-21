@@ -1,7 +1,7 @@
-Gradle Spring Boot Conventions Plugin
+Gradle Spring Boot Conventions Plugin ![Build Status](https://snap-ci.com/WeltN24/gradle-spring-boot-conventions-plugin/branch/master/build_image)
 ========================================
 
-![Build Status](https://snap-ci.com/WeltN24/gradle-spring-boot-conventions-plugin/branch/master/build_image)
+This plugin applies best practices and conventions for developing [Spring Boot](http://projects.spring.io/spring-boot/) microservices at [welt](https://github.com/WeltN24).
 
 ## Usage
 
@@ -26,37 +26,54 @@ Build script snippet for new, incubating, plugin mechanism introduced in Gradle 
       id "de.weltn24.spring-boot-conventions" version "1.3.0"
     }
 
-## This Plugin adds the following features to your Project:
+## Preconditions
+- currently this plugin supports only Spring Boot projects 1.3.0M2+
+- plugin tested with [Gradle](http://gradle.org/) 2.4+ in single and multi project setups
+ 
+## Conventions
 
-### Gradle plugins
-- java
-    
+### Project
+
+The following standard Gradle plugins will be applied automatically:
+
++ [java](https://docs.gradle.org/current/userguide/java_plugin.html)
+
 ### Dependencies
-- org.springframework.boot:spring-boot-starter-actuator
-- org.springframework.boot:spring-boot-starter-test
-- org.springframework.boot:spring-boot-devtools
-- org.springframework.cloud:spring-cloud-starter-hystrix
 
-### Configuration
-All configurations are optional
+The following dependencies will be added to the classpath:
 
-Example:
+| Scope | Dependency | Description |
+| ---- | ---- | ------------- |
+|compile| org.springframework.boot:spring-boot-starter-actuator| production ready [HTTP endpoints](http://docs.spring.io/spring-boot/docs/current/reference/html/production-ready-endpoints.html) |
+|compile| org.springframework.boot:spring-boot-devtools| [tools](https://spring.io/blog/2015/06/17/devtools-in-spring-boot-1-3) supporting rapid development of boot apps  (restarting etc.) |
+|compile| org.springframework.cloud:spring-cloud-starter-hystrix | [Spring Cloud](http://cloud.spring.io/spring-cloud-netflix/spring-cloud-netflix.html) abstraction of the [Hystrix](https://github.com/Netflix/Hystrix) project [tools](https://spring.io/blog/2015/06/17/devtools-in-spring-boot-1-3) supporting rapid development of boot apps  |
+|testCompile| org.springframework.boot:spring-boot-starter-test | best practices of libraries to write automated tests for spring apps |
 
-    weltn24SpringBootConventions {
-        generateGitProperties = false
-    }
+### Custom tasks
+
+#### Git properties
+
+The task `generateGitProperties` is added which will create a `git.properties` when compiling the production code. The VCS information will be displayed in the `/info` endpoint automatically (see [reference guide](http://docs.spring.io/spring-boot/docs/current/reference/htmlsingle/#production-ready-application-info) for details).
 
 | Type | Name | Default Value | Description |
 | ---- | ---- | ------------- | ----------- |
 |Boolean| generateGitProperties| true | switches generation of git.properties on/off |
     
-### Tasks
-- generateBuildProperties : extends application.yml with gradle.properties (generateBuildProperties only exists if "src/main/ressources/config/application.yml" exists)
-- generateGitProperties : creates and fills automatically "resources/main/git.properties"
+#### Build properties
 
-### Others
-- if "src/main/ressources/config/application.yml" exists, it will be AUTOMATICALLY extended by gradle.properties (on processResources by generateBuildProperties)
-    
+The task `generateBuildProperties` which will expand build info placeholders in `src/main/resources/config/application.yml` The build information will be displayed in the `/info` endpoint automatically (see [reference guide](http://docs.spring.io/spring-boot/docs/current/reference/htmlsingle/#production-ready-application-info) for details).
+
+Example of application.yml with placeholders:
+
+    info:
+        build:
+            name: ${name}
+            description: ${description}
+            version: ${version}
+            gradleVersion: ${gradleVersion}
+            javaVersion: ${javaVersion}
+
+
 ## Publishing
 
 Publishing is automatically done by snap-ci after a commit with increased version.
