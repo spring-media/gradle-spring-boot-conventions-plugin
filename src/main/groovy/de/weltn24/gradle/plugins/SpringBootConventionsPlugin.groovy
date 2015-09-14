@@ -1,11 +1,10 @@
 package de.weltn24.gradle.plugins
 
+import org.ajoberstar.grgit.Grgit
 import org.gradle.api.Plugin
 import org.gradle.api.Project
-import org.gradle.api.artifacts.DependencyResolveDetails
 import org.gradle.api.plugins.JavaPlugin
 import org.gradle.api.tasks.Copy
-import org.ajoberstar.grgit.Grgit
 
 class SpringBootConventionsPlugin implements Plugin<Project> {
 
@@ -21,19 +20,7 @@ class SpringBootConventionsPlugin implements Plugin<Project> {
         project.afterEvaluate {
             project.dependencies.add(JavaPlugin.COMPILE_CONFIGURATION_NAME, "org.springframework.boot:spring-boot-starter-actuator")
             project.dependencies.add(JavaPlugin.COMPILE_CONFIGURATION_NAME, "org.springframework.boot:spring-boot-devtools")
-            project.dependencies.add(JavaPlugin.COMPILE_CONFIGURATION_NAME, "org.springframework.cloud:spring-cloud-starter-hystrix:1.0.3.RELEASE")
             project.dependencies.add(JavaPlugin.TEST_COMPILE_CONFIGURATION_NAME, "org.springframework.boot:spring-boot-starter-test")
-        }
-
-        project.configurations.all {
-            // com.netflix.archaius:archaius-core:0.4.1 is a transitive dependency of spring-cloud-starter-hystrix
-            // but leads to CNF exceptions on com.netflix.config.DeploymentContext$ContextKey
-            // using a newer version seems to fix this problem (see https://github.com/spring-cloud/spring-cloud-starters/issues/20)
-            resolutionStrategy.eachDependency { DependencyResolveDetails details ->
-            if (details.requested.name == 'archaius-core') {
-                details.useVersion('0.7.1')
-            }
-            }
         }
 
         project.task('generateBuildProperties',
