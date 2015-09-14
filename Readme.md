@@ -14,7 +14,7 @@ Build script snippet for use in all Gradle versions:
         }
       }
       dependencies {
-        classpath "gradle.plugin.de.weltn24:spring-boot-conventions:1.3.0"
+        classpath "gradle.plugin.de.weltn24:spring-boot-conventions:2.0.0"
       }
     }
     
@@ -23,7 +23,7 @@ Build script snippet for use in all Gradle versions:
 Build script snippet for new, incubating, plugin mechanism introduced in Gradle 2.1:
 
     plugins {
-      id "de.weltn24.spring-boot-conventions" version "1.3.0"
+      id "de.weltn24.spring-boot-conventions" version "2.0.0"
     }
 
 The plugin applies only conventions and best practices. The necessary Gradle configuration for developing Spring Boot applications must be done in the project itself.
@@ -40,8 +40,8 @@ Example:
         dependencies {
             classpath(
                 'org.springframework.boot:spring-boot-gradle-plugin:1.3.0.M2',
-                'gradle.plugin.de.weltn24:spring-boot-conventions:1.3.0',
-                'org.ajoberstar:gradle-git:1.2.0' 
+                'gradle.plugin.de.weltn24:spring-boot-conventions:2.0.0',
+                'org.ajoberstar:gradle-git:1.3.0' 
             )
         }
     }
@@ -68,7 +68,6 @@ The following dependencies will be added to the classpath:
 | ---- | ---- | ------------- |
 |compile| org.springframework.boot:spring-boot-starter-actuator| production ready [HTTP endpoints](http://docs.spring.io/spring-boot/docs/current/reference/html/production-ready-endpoints.html) |
 |compile| org.springframework.boot:spring-boot-devtools| [tools](https://spring.io/blog/2015/06/17/devtools-in-spring-boot-1-3) supporting rapid development of boot apps  (restarting etc.) |
-|compile| org.springframework.cloud:spring-cloud-starter-hystrix | [Spring Cloud](http://cloud.spring.io/spring-cloud-netflix/spring-cloud-netflix.html) abstraction of the [Hystrix](https://github.com/Netflix/Hystrix) project |
 |testCompile| org.springframework.boot:spring-boot-starter-test | best practices of libraries to write automated tests for spring apps |
 
 ### Custom tasks
