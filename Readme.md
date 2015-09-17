@@ -97,8 +97,10 @@ Example of application.yml with placeholders:
 
 ## Publishing
 
-Publishing is automatically done by snap-ci after a commit with increased version.
+Publishing is automatically done by [SnapCI](https://snap-ci.com/WeltN24/gradle-spring-boot-conventions-plugin/branch/master) after a commit with increased version.
 
-## Copyright (c) 2015 WeltN24 GmbH
+## License 
 
-Released under the [MIT license](https://tldrlegal.com/license/mit-license).
+Copyright (c) 2015 WeltN24 GmbH
+
+Licensed under the [MIT license](https://tldrlegal.com/license/mit-license).
