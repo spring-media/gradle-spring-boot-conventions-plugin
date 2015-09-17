@@ -5,26 +5,7 @@ This plugin applies best practices and conventions for developing [Spring Boot](
 
 ## Usage
 
-Build script snippet for use in all Gradle versions:
-
-    buildscript {
-      repositories {
-        maven {
-          url "https://plugins.gradle.org/m2/"
-        }
-      }
-      dependencies {
-        classpath "gradle.plugin.de.weltn24:spring-boot-conventions:2.0.0"
-      }
-    }
-    
-    apply plugin: "de.weltn24.spring-boot-conventions"
-    
-Build script snippet for new, incubating, plugin mechanism introduced in Gradle 2.1:
-
-    plugins {
-      id "de.weltn24.spring-boot-conventions" version "2.0.0"
-    }
+See [plugin portal](https://plugins.gradle.org/plugin/de.weltn24.spring-boot-conventions).
 
 The plugin applies only conventions and best practices. The necessary Gradle configuration for developing Spring Boot applications must be done in the project itself.
 
