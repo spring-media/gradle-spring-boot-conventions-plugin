@@ -48,6 +48,7 @@ The following dependencies will be added to the classpath:
 | Scope | Dependency | Description |
 | ---- | ---- | ------------- |
 |compile| org.springframework.boot:spring-boot-starter-actuator| production ready [HTTP endpoints](http://docs.spring.io/spring-boot/docs/current/reference/html/production-ready-endpoints.html) |
+|compile| org.springframework.boot:spring-boot-starter-security| default [spring security](http://docs.spring.io/spring-boot/docs/current/reference/htmlsingle/#boot-features-security) configuration |
 |compile| org.springframework.boot:spring-boot-devtools| [tools](https://spring.io/blog/2015/06/17/devtools-in-spring-boot-1-3) supporting rapid development of boot apps  (restarting etc.) |
 |runtime| org.jolokia:jolokia-core| [JMX-HTTP](http://docs.spring.io/spring-boot/docs/current/reference/html/production-ready-jmx.html) bridge to access JMX beans |
 |testCompile| org.springframework.boot:spring-boot-starter-test | best practices of libraries to write automated tests for spring apps |
