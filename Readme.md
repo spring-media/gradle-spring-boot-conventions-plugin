@@ -20,9 +20,8 @@ Example:
         
         dependencies {
             classpath(
-                'org.springframework.boot:spring-boot-gradle-plugin:1.3.0.M2',
-                'gradle.plugin.de.weltn24:spring-boot-conventions:2.0.0',
-                'org.ajoberstar:gradle-git:1.3.0' 
+                'org.springframework.boot:spring-boot-gradle-plugin:1.4.0.M3',
+                'gradle.plugin.de.weltn24:spring-boot-conventions:4.0.0',
             )
         }
     }
@@ -52,30 +51,6 @@ The following dependencies will be added to the classpath:
 |compile| org.springframework.boot:spring-boot-devtools| [tools](https://spring.io/blog/2015/06/17/devtools-in-spring-boot-1-3) supporting rapid development of boot apps  (restarting etc.) |
 |runtime| org.jolokia:jolokia-core| [JMX-HTTP](http://docs.spring.io/spring-boot/docs/current/reference/html/production-ready-jmx.html) bridge to access JMX beans |
 |testCompile| org.springframework.boot:spring-boot-starter-test | best practices of libraries to write automated tests for spring apps |
-
-### Custom tasks
-
-#### Git properties
-
-The task `generateGitProperties` is added which will create a `git.properties` when compiling the production code. The VCS information will be displayed in the `/info` endpoint automatically (see [reference guide](http://docs.spring.io/spring-boot/docs/current/reference/htmlsingle/#production-ready-application-info) for details).
-
-| Type | Name | Default Value | Description |
-| ---- | ---- | ------------- | ----------- |
-|Boolean| generateGitProperties| true | switches generation of git.properties on/off |
-    
-#### Build properties
-
-The task `generateBuildProperties` which will expand build info placeholders in `src/main/resources/config/application.yml` The build information will be displayed in the `/info` endpoint automatically (see [reference guide](http://docs.spring.io/spring-boot/docs/current/reference/htmlsingle/#production-ready-application-info) for details).
-
-Example of application.yml with placeholders:
-
-    info:
-        build:
-            name: ${name}
-            description: ${description}
-            version: ${version}
-            gradleVersion: ${gradleVersion}
-            javaVersion: ${javaVersion}
 
 ## Testing
 
